@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART} from './constants';
+import {ADD_TO_CART, REMOVE_FROM_CART, USER_LIST} from './constants';
 
 export const addToCart = (item: any) => {
   return {
@@ -13,3 +13,9 @@ export const removeFromCart = (item: any) => {
     payload: item,
   };
 };
+
+export function getUserList() {
+  return {
+    type: USER_LIST,
+  };
+}

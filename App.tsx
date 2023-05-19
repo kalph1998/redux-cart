@@ -6,45 +6,21 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {SafeAreaView, View, Text, Button} from 'react-native';
-import Header from './components/header';
-import Product from './components/product';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import ProductWrapper from './components/ProductWrapper';
+import UserList from './components/UserList';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
-  const products = [
-    {
-      id: 1,
-      name: 'samsung',
-      color: 'red',
-      price: 300,
-    },
-    {
-      id: 2,
-      name: 'nokia',
-      color: 'blue',
-      price: 400,
-    },
-    {
-      id: 3,
-      name: 'apple',
-      color: 'green',
-      price: 800,
-    },
-  ];
-
   return (
-    <SafeAreaView>
-      <Header />
-
-      {products.map(product => {
-        return <Product item={product} />;
-      })}
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={ProductWrapper} />
+        <Stack.Screen name="User" component={UserList} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

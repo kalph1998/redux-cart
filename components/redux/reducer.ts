@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_FROM_CART} from './constants';
+import {ADD_TO_CART, REMOVE_FROM_CART, SET_USER_DATA} from './constants';
 
 const initalState: any[] = [];
 
@@ -13,6 +13,8 @@ export const reducer = (state = initalState, action: any) => {
       });
       return [...filteredItems];
 
+    case SET_USER_DATA:
+      return [action.data];
     default:
       return state;
   }
